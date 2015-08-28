@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+{% block title %}Archive {{ SITENAME }}{% endblock %}
+{% block ogtitle %}Archive {{ SITENAME }}{% endblock %}
+{% block ogurl %}{{ SITEURL }}/archives.html{%endblock%}
+{% block canonicalurl %}{{ SITEURL }}/archives.html{%endblock%}
+
+
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/tree.css" />
+    <script type="text/javascript" src="{{ SITEURL }}/theme/js/tree.js"></script>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="archives-list">
+
+    <h2>{% block content_title %}Archive {{ SITENAME }}{% endblock %}</h2>
+
+    <ul id="tree" class="tree">
+        <li>{% block tree_root %}Archive{% endblock %}<ul>
+    {% for year, year_group in dates|groupby('date.year')|reverse %}
+        <li>{{ (year_group|first()).date.strftime('%Y') }}
+            <ul>
+                {% for month, mounts_group in year_group|groupby('date.month')|reverse %}
+                    <li>{{ (mounts_group|first()).date.strftime('%B') }}
+                        <ul>
+                            {% for day, days_group in mounts_group|groupby('date.day')|reverse %}
+                                <li>{{ (days_group|first()).date.strftime('%d') }}
+                                    <ul>
+                                        {% for article in days_group %}
+                                            <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </li>
+        </ul>
+    {% endfor %}
+        </li></ul>
+    </ul>
+
+<br />
+<div class="clearfix"></div>
+
+</div>
+
+{% endblock %}

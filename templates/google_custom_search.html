@@ -1,0 +1,23 @@
+{% if GOOGLE_CUSTOM_SEARCH %}
+
+<script>
+  (function() {
+    var cx = '{{ GOOGLE_CUSTOM_SEARCH }}';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+<form id="searchbox_{{ GOOGLE_CUSTOM_SEARCH }}" action="https://www.google.com/">
+    <input value="{{ GOOGLE_CUSTOM_SEARCH }}" name="cx" type="hidden" />
+    <input value="FORID:11" name="cof" type="hidden" />
+    <input id="q" name="q" type="text" required />
+    <input type="submit" value="">
+</form>
+
+{% endif %}

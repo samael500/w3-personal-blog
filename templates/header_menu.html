@@ -1,0 +1,45 @@
+<div class="header">  
+    <div class="container">
+        <div class="logo">
+            <a href="{{ SITEURL }}/">
+                {{ SITENAME|upper }}{% if SITESUBTITLE %}<br />{{ SITESUBTITLE }}{% endif %}
+            </a>
+        </div>
+
+        <div class="top-menu">
+
+            <div class="search">
+                {% include 'google_custom_search.html' %}
+            </div>
+
+            <span class="menu"> </span>
+                <ul>
+                    {% for title, link in MENUITEMS %}
+                        <li {% if link[1:] == output_file %}class="active"{% endif %}><a href="{{ link }}">{{ title }}</a></li>
+                    {% endfor %}
+                    {% if DISPLAY_PAGES_ON_MENU %}
+                        {% for pa in PAGES %}
+                            <li {% if pa == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ pa.url }}">{{ pa.title }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                    {% if not HIDE_CATEGORIES_FROM_MENU %}
+                        {% for cat, null in categories %}
+                            <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+
+                    <div class="clearfix"></div>
+                </ul>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <script>
+                $("span.menu").click(function(){
+                    $(".top-menu ul").slideToggle("slow" , function(){
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>

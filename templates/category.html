@@ -1,0 +1,7 @@
+{% extends "archives.html" %}
+{% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
+{% block content_title %}Articles in category "{{ category }}"{% endblock %}
+{% block ogtitle %}{{ SITENAME }} - {{ category }}{% endblock %}
+{% block ogurl %}{{ SITEURL }}/{{ category.url }}{%endblock%}
+{% block canonicalurl %}{{ SITEURL }}/{{ category.url }}{%endblock%}
+{% block tree_root %}{{ category }}{% endblock %}

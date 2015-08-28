@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="robots" content="index, follow"/>
+    <meta name="keywords" content="{% block keywords %}{{ KEYWORDS }}{%endblock%}" />
+
+    <meta property="og:title" content="{% block ogtitle %}{{ SITENAME }}{%endblock%}"/>
+    <meta property="og:url" content="{% block ogurl %}{{ SITEURL }}{%endblock%}"/>
+    <meta property="og:site_name" content="{{ SITENAME }}"/>
+    <meta property="og:type" content="{% block ogtype %}website{%endblock%}"/>
+    <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
+    <meta property="og:description" content="{% block ogdescription %}{% endblock %}" />
+
+    <link rel="canonical" href="{% block canonicalurl %}{{ SITEURL }}{%endblock%}" />
+
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/paginator.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygment.css" />
+
+    <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ SITEURL }}/theme/js/move-top.js"></script>
+    <script type="text/javascript" src="{{ SITEURL }}/theme/js/easing.js"></script>
+
+
+    <script type="text/javascript">var switchTo5x=true;</script>
+
+    {% if SHARETHIS_PUB_KEY %}
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">
+        stLight.options({
+            publisher: "{{ SHARETHIS_PUB_KEY }}",
+            doNotHash: false,
+            doNotCopy: false,
+            hashAddressBar: false
+        });
+    </script>
+    {% endif %}
+
+    {# emojify #}
+    <script type="text/javascript" src="/emojify/js/emojify.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/emojify/css/emojify.min.css" />
+    <script type="text/javascript">
+        emojify.setConfig({
+            img_dir : '/emojify/images',
+            ignore_emoticons: true,
+        });
+        $(document).ready(function() {
+            emojify.run(document.getElementsByTagName('article')[0]);
+        });
+    </script>
+    {# /emojify #}
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body id="index">
+    {% include 'github.html' %}
+    {% include 'header_menu.html' %}
+
+    <div class="content">
+        <div class="container">
+            <div class="content-grids">
+                {% block content_container %}
+                    <div class="col-md-8 content-main">
+                        {% block content %}{% endblock %}
+                    </div>
+
+                    <div class="col-md-4 content-right">
+                        {% block sidebar %}{% endblock %}
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>This blog is proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.</p>
+            <p><a href="http://github.com/samael500/w3-personal-blog/">W3 Personal Blog</a> is a flat <a href="http://getbootstrap.com/">bootstrap</a> responsive theme designed by <a href="https://w3layouts.com/personal-blog-a-blogging-category-flat-bootstrap-responsive-web-template/">W3layouts</a> ported to a pelican by <a href="http://samael500.github.io/">Samael500</a>.<p>
+            <p>Copyrights © 2015 {{ SITENAME }} All rights reserved.</p>
+        </div>
+    </div>
+
+{% include 'analytics.html' %}
+{% include 'piwik.html' %}
+{% include 'disqus_script.html' %}
+    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

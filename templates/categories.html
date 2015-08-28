@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block title %}Categories {{ SITENAME }}{% endblock %}
+{% block ogtitle %}Categories {{ SITENAME }}{% endblock %}
+{% block ogurl %}{{ SITEURL }}/categories.html{%endblock%}
+{% block canonicalurl %}{{ SITEURL }}/categories.html{%endblock%}
+
+{% block content %}
+
+<div class="archives-list">
+
+    <h2>{% block content_title %}Categories {{ SITENAME }}{% endblock %}</h2>
+
+    <ul class="fa-ul">
+    {% for category, articles in categories %}
+        <li><a href="{{ SITEURL }}/{{ category.url }}">
+            <i class="fa-li fa fa-tags"></i> {{ category }} ({{ articles|count }})</a></li>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
