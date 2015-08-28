@@ -3,6 +3,13 @@ Personal Blog a Blogging Category Flat Bootstrap Responsive Web Template
 
 Pelican adaptation of W3 Personal Blog template. [Live demo](http://samael500.github.io/).
 
+![index](readme_img/index.png)
+<hr />
+![article](readme_img/article.png)
+<hr />
+![archive](readme_img/archive.png)
+
+
 [Personal Blog](https://w3layouts.com/personal-blog-a-blogging-category-flat-bootstrap-responsive-web-template/)
 is a clean, flat and professional Blogging category template for
 bloggers and blogging website. It can be customized easily to suit your wishes.
@@ -32,8 +39,34 @@ template, best responsive template.
 
 This entry was posted in [Blogging Template](https://w3layouts.com/blogging-template/).
 
+###Article image
+On the main page of the article is displayed with a preview image. To specify the image to add to the meta tag information `Image`.
 
-###Pelican conf:
+![article_info](readme_img/article_info.png)
+
+For example:
+```Markdown
+Title: Ралли на браузерах
+Date: 2015-04-01 10:20
+Modified: 2015-04-05 19:30
+Category: Python
+Tags: python, browsers, wb-tech
+Image: /media/browsers/pedestal.png
+Summary:
+    Собственный проект [WB--Tech](http://wbtech.pro/) по комментированию
+    скриншотов [coment.me](http://coment.me/) на сегодняшний день, для получения
+    снимка сайта использует связку `selenium + firefox`. Данный подход решает
+    задачи получения скриншота, однако тратит достаточно много памяти, и к тому же
+    со временем накапливается большое количество повисших процессов, что в свою
+    очередь приводит к подвисанию сервиса. В связи с этим, необходимо исследовать
+    доступные варианты и определить наилучший из браузеров для автоматического
+    создания скриншотов...
+#
+
+```
+
+###Pelican conf
+It is my pelicanconf.py file:
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
