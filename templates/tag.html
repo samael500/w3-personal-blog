@@ -1,6 +1,6 @@
 {% extends "archives.html" %}
 {% block title %}{{ SITENAME }} - {{ tag }} | {{ SITENAME }}{% endblock %}
-{% block content_title %}Articles with tag "{{ tag }}"{% endblock %}
+{% block content_title %}{{ ARTICLESTAG_TEXT|default('Articles with tag') }} "{{ tag }}"{% endblock %}
 {% block ogtitle %}{{ SITENAME }} - {{ tag }}{% endblock %}
 {% block ogurl %}{{ SITEURL }}/{{ tag.url }}{%endblock%}
 {% block canonicalurl %}{{ SITEURL }}/{{ tag.url }}{%endblock%}

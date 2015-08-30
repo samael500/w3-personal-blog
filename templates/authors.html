@@ -1,14 +1,14 @@
 {% extends "index.html" %}
-{% block title %}Authors {{ SITENAME }}{% endblock %}
-{% block ogtitle %}Authors {{ SITENAME }}{% endblock %}
-{% block ogurl %}{{ SITEURL }}/authors.html{%endblock%}%}
+{% block title %}{{ AUTHORS_TEXT|default('Authors') }} {{ SITENAME }}{% endblock %}
+{% block ogtitle %}{{ AUTHORS_TEXT|default('Authors') }} {{ SITENAME }}{% endblock %}
+{% block ogurl %}{{ SITEURL }}/authors.html{%endblock%}
 {% block canonicalurl %}{{ SITEURL }}/authors.html{%endblock%}
 
 {% block content %}
 
 <div class="archives-list">
 
-    <h2>{% block content_title %}Authors {{ SITENAME }}{% endblock %}</h2>
+    <h2>{% block content_title %}{{ AUTHORS_TEXT|default('Authors') }} {{ SITENAME }}{% endblock %}</h2>
 
     {% for author, articles in authors|sort %}
         <dd><a href="{{ SITEURL }}/{{ author.url }}">{{ author }} ({{ articles|count }})</a></dd>

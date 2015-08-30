@@ -18,7 +18,7 @@
                         <div class="post-info">
                             {% include 'article_infos.html' %}
                             <p>{{ article.summary }}</p>
-                            <a href="{{ SITEURL }}/{{ article.url }}"><span></span>read more...</a>
+                            <a href="{{ SITEURL }}/{{ article.url }}"><span></span>{{ READMORE_TEXT|default('read more...') }}</a>
                         </div>
                     </div>
 
@@ -42,31 +42,31 @@
 {% block sidebar %}
 
     <div class="recent">
-        <h3>Content</h3>
+        <h3>{{ CONTENT_TEXT|default('Content') }}</h3>
         <ul class="fa-ul">
-            <li><a href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS|default('categories.html') }}"><i class="fa-li fa fa-tags"></i> Categories</a></li>
-            <li><a href="{{ SITEURL }}/{{ ARCHIVES_SAVE_AS|default('archives.html') }}"><i class="fa-li fa fa-calendar"></i> Archive</a></li>
-            <li><a href="{{ SITEURL }}/{{ TAGS_SAVE_AS|default('tags.html') }}"><i class="fa-li fa fa-tag"></i> Tags</a></li>
+            <li><a href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS|default('categories.html') }}"><i class="fa-li fa fa-tags"></i> {{ CATEGORIES_TEXT|default('Categories') }}</a></li>
+            <li><a href="{{ SITEURL }}/{{ ARCHIVES_SAVE_AS|default('archives.html') }}"><i class="fa-li fa fa-calendar"></i> {{ ARCHIVES_TEXT|default('Archives') }}</a></li>
+            <li><a href="{{ SITEURL }}/{{ TAGS_SAVE_AS|default('tags.html') }}"><i class="fa-li fa fa-tag"></i> {{ TAGS_TEXT|default('Tags') }}</a></li>
 
             {% if TAG_FEED_ATOM and tag is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}"><i class="fa-li fa fa-rss"></i> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
             {% elif TAG_FEED_RSS and tag is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}"><i class="fa-li fa fa-rss"></i> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
             {% elif CATEGORY_FEED_ATOM and category is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}"><i class="fa-li fa fa-rss"></i> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
             {% elif CATEGORY_FEED_RSS and category is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}"><i class="fa-li fa fa-rss"></i> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
             {% elif FEED_ALL_ATOM %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"><i class="fa-li fa fa-rss"></i> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
             {% elif FEED_ALL_RSS %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"><i class="fa-li fa fa-rss"></i> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
             {% endif %}
         </ul>
     </div>
 
     {% if LINKS %}
         <div class="side-links">
-            <h3>Links</h3>
+            <h3>{{ LINKS_TEXT|default('Links') }}</h3>
             <ul class="fa-ul">
                 {% for name, link in LINKS %}
                     <li><a href="{{ link }}"><i class="fa-li fa fa-external-link"></i> {{ name }}</a></li>
@@ -77,7 +77,7 @@
 
     {% if SOCIAL %}
         <div class="side-links">
-            <h3>Social links</h3>
+            <h3>{{ SOCIALLINKS_TEXT|default('Social links') }}</h3>
             <ul class="fa-ul">
                 {% for name, link in SOCIAL %}
                     <li><a href="{{ link }}">{{ name }}</a></li>
@@ -88,7 +88,7 @@
 
     {% if TAG_CLOUD_STEPS %}
         <div class="categories">
-            <h3>Tags</h3>
+            <h3>{{ TAGS_TEXT|default('Tags') }}</h3>
             <ul id="cloud">
                 {% for tag in tag_cloud %}
                     <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/{{ tag.0.url }}">{{ tag.0 }}</a></li>

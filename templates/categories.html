@@ -1,6 +1,6 @@
 {% extends "index.html" %}
-{% block title %}Categories {{ SITENAME }}{% endblock %}
-{% block ogtitle %}Categories {{ SITENAME }}{% endblock %}
+{% block title %}{{ CATEGORIES_TEXT|default('Categories') }} {{ SITENAME }}{% endblock %}
+{% block ogtitle %}{{ CATEGORIES_TEXT|default('Categories') }} {{ SITENAME }}{% endblock %}
 {% block ogurl %}{{ SITEURL }}/categories.html{%endblock%}
 {% block canonicalurl %}{{ SITEURL }}/categories.html{%endblock%}
 
@@ -8,7 +8,7 @@
 
 <div class="archives-list">
 
-    <h2>{% block content_title %}Categories {{ SITENAME }}{% endblock %}</h2>
+    <h2>{% block content_title %}{{ CATEGORIES_TEXT|default('Categories') }} {{ SITENAME }}{% endblock %}</h2>
 
     <ul class="fa-ul">
     {% for category, articles in categories %}

@@ -1,6 +1,6 @@
 {% extends "index.html" %}
-{% block title %}Archive {{ SITENAME }}{% endblock %}
-{% block ogtitle %}Archive {{ SITENAME }}{% endblock %}
+{% block title %}{{ ARCHIVES_TEXT|default('Archives') }} {{ SITENAME }}{% endblock %}
+{% block ogtitle %}{{ ARCHIVES_TEXT|default('Archives') }} {{ SITENAME }}{% endblock %}
 {% block ogurl %}{{ SITEURL }}/archives.html{%endblock%}
 {% block canonicalurl %}{{ SITEURL }}/archives.html{%endblock%}
 
@@ -15,10 +15,10 @@
 
 <div class="archives-list">
 
-    <h2>{% block content_title %}Archive {{ SITENAME }}{% endblock %}</h2>
+    <h2>{% block content_title %}{{ ARCHIVES_TEXT|default('Archives') }} {{ SITENAME }}{% endblock %}</h2>
 
     <ul id="tree" class="tree">
-        <li>{% block tree_root %}Archive{% endblock %}<ul>
+        <li>{% block tree_root %}{{ ARCHIVES_TEXT|default('Archives') }}{% endblock %}<ul>
     {% for year, year_group in dates|groupby('date.year')|reverse %}
         <li>{{ (year_group|first()).date.strftime('%Y') }}
             <ul>
