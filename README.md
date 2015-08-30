@@ -64,6 +64,26 @@ Summary:
 #
 
 ```
+###Simple translation
+To change the short text in the design theme, you should define constants and names.
+
+| const name | default value |
+|------------|---------------|
+| ARCHIVES_TEXT | Archives |
+| ARTICLESCATEGORY_TEXT | Articles in category |
+| ARTICLESTAG_TEXT | Articles with tag |
+| AUTHOR_TEXT | Author |
+| AUTHORS_TEXT | Authors |
+| CATEGORIES_TEXT | Categories |
+| CATEGORY_TEXT | Category |
+| TAGS_TEXT | Tags |
+| COMMENTS_TEXT | Comments |
+| CONTENT_TEXT | Content |
+| FIRST_TEXT | first |
+| LAST_TEXT | last |
+| READMORE_TEXT | read more... |
+| FEED_TEXT | Feed |
+| GETPDF_TEXT | Get the pdf |
 
 ###Pelican conf
 It is my pelicanconf.py file:
@@ -75,14 +95,28 @@ from __future__ import unicode_literals
 AUTHOR = u'Maks'
 SITENAME = u'Maks blog'
 # SITESUBTITLE = u'Samael500'
-SITEURL = 'http://samael500.github.io'
+SITEURL = 'https://samael500.github.io'
 KEYWORDS = u'Samael500 personal blog'
 
 PATH = 'content'
 
+# languages settings
 TIMEZONE = 'Europe/Moscow'
-
 DEFAULT_LANG = u'ru'
+
+ARCHIVES_TEXT = u'Архив'
+ARTICLESCATEGORY_TEXT = u'Статьи в категории'
+ARTICLESTAG_TEXT = u'Статьи с тегом'
+AUTHOR_TEXT = u'Автор'
+AUTHORS_TEXT = u'Авторы'
+CATEGORIES_TEXT = u'Категории'
+CATEGORY_TEXT = u'Категория'
+TAGS_TEXT = u'Теги'
+COMMENTS_TEXT = u'Комментарии'
+CONTENT_TEXT = u'Содержимое'
+FIRST_TEXT = u'первая'
+LAST_TEXT = u'последняя'
+READMORE_TEXT = u'далее...'
 
 # Feed generation is usually not desired when developing
 FEED_DOMAIN = SITEURL
@@ -104,56 +138,36 @@ SOCIAL = (
 )
 
 # TWITTER_USERNAME = 'samael500'
-
-DEFAULT_PAGINATION = 10
-
-# Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
-
-THEME = '../w3-personal-blog'
 GITHUB_URL = 'https://github.com/Samael500'
-
-STATIC_PATHS = ['icons', 'media', 'extra', 'emojify', 'stuff', ]
-
-TYPOGRIFY = True
-
-DISPLAY_PAGES_ON_MENU = True
-
 GOOGLE_CUSTOM_SEARCH = '006263355362628034990:cuxoisonrno'
 
+THEME = './theme'
+# THEME = '../w3-personal-blog'
 
+DISPLAY_PAGES_ON_MENU = True
+DEFAULT_PAGINATION = 10
+
+# url and path settings
+RELATIVE_URLS = True
+CACHE_CONTENT = False
+STATIC_PATHS = ['icons', 'media', 'extra', 'emojify', 'stuff', ]
+# article
 ARTICLE_URL = u'articles/{category}/{slug}/'
 ARTICLE_SAVE_AS = u'articles/{category}/{slug}/index.html'
-
+# page
 PAGE_URL = u'{slug}/'
 PAGE_SAVE_AS = u'{slug}/index.html'
-
+# author
 AUTHOR_URL = u'author/{slug}/'
 AUTHOR_SAVE_AS = u'author/{slug}/index.html'
-
+# authors
 AUTHORS_URL = u'authors/'
 AUTHORS_SAVE_AS = u'authors/index.html'
-
+# category
 CATEGORY_URL = u'category/{slug}.html'
 CATEGORY_SAVE_AS = u'category/{slug}.html'
-
+# tag
 TAG_URL = u'tag/{slug}/'
 TAG_SAVE_AS = u'tag/{slug}/index.html'
 
-
-PLUGINS=['plugins.sitemap', ]
-
-SITEMAP = {
-    'format': 'xml',
-    'priorities': {
-        'articles': 0.5,
-        'indexes': 0.5,
-        'pages': 0.5
-    },
-    'changefreqs': {
-        'articles': 'weekly',
-        'indexes': 'daily',
-        'pages': 'monthly'
-    }
-}
 ```
