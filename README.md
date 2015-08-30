@@ -141,8 +141,7 @@ SOCIAL = (
 GITHUB_URL = 'https://github.com/Samael500'
 GOOGLE_CUSTOM_SEARCH = '006263355362628034990:cuxoisonrno'
 
-THEME = './theme'
-# THEME = '../w3-personal-blog'
+THEME = '../w3-personal-blog'
 
 DISPLAY_PAGES_ON_MENU = True
 DEFAULT_PAGINATION = 10
