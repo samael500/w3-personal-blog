@@ -1,0 +1,42 @@
+.anchorific {
+    font-size: 0.9em;
+    font-weight: 400;
+    max-width: 150%;
+    background: #fff;
+}
+
+.anchorific .tree {
+    border: 3px solid #ddd;
+}
+
+@media(max-width:1024px){
+    .anchorific{
+        display: none;
+    }
+}
+
+.anchorific li ul {
+    display: none;
+}
+
+.anchorific li.active > a {
+    color: #00aeff;
+}
+
+.anchorific li.active > ul {
+    display: block;
+    /*color: #00aeff;*/
+}
+
+.sticky {
+    position: fixed;
+    top: 33px;
+    z-index: 999;
+}
+
+/*.top {
+    display: none;
+    font-size: 1em;
+    font-weight: 600;
+}
+*/

@@ -10,17 +10,25 @@
 {% block ogimage %}{{ SITEURL }}{{ article.image|default('/theme/images/post.jpg') }}{% endblock %}
 {% block ogdescription %}{{ article.summary|striptags }}{% endblock %}
 
+
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/tree.css" />
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/anchorific.css" />
+    <script type="text/javascript" src="{{ SITEURL }}/theme/js/anchorific.js"></script>
+{% endblock %}
+
+
 {% block content_container %}
 <div class="single-main">
 
-    <div class="col-md-12 single-grid">
+    <div class="col-md-9 single-grid">
 
         <header>
             {% include 'article_infos.html' %}
             {% include 'twitter.html' %}
         </header>
 
-        <div class="content">
+        <article class="content">
 
             {% if SHARETHIS_PUB_KEY %}
             <div class="sharethis-top">
@@ -42,7 +50,7 @@
             </div>
             {% endif %}
 
-        </div>
+        </article>
 
         {% if DISQUS_SITENAME %}
             <div class="comments">
@@ -57,7 +65,9 @@
                 </script>
             </div>
         {% endif %}
-
+    </div>
+    <div class="col-md-3 content-right">
+        <div class='anchorific'></div>
     </div>
 </div>
 {% endblock %}
