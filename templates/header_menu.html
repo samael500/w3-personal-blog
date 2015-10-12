@@ -15,16 +15,17 @@
             <span class="menu"> </span>
                 <ul>
                     {% for title, link in MENUITEMS %}
-                        <li {% if link[1:] == output_file %}class="active"{% endif %}><a href="{{ link }}">{{ title }}</a></li>
+                        <li {% if link[1:] in (output_file, output_file.replace('index.html', '')) %}class="active"{% endif %}>
+                            <a href="{{ link }}">{{ title|upper }}</a></li>
                     {% endfor %}
                     {% if DISPLAY_PAGES_ON_MENU %}
                         {% for pa in PAGES %}
-                            <li {% if pa == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ pa.url }}">{{ pa.title }}</a></li>
+                            <li {% if pa == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ pa.url }}">{{ pa.title|upper }}</a></li>
                         {% endfor %}
                     {% endif %}
                     {% if not HIDE_CATEGORIES_FROM_MENU %}
                         {% for cat, null in categories %}
-                            <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                            <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat|upper }}</a></li>
                         {% endfor %}
                     {% endif %}
 

@@ -4,14 +4,22 @@
 {% block ogurl %}{{ SITEURL }}/{{ page.url }}{%endblock%}
 {% block canonicalurl %}{{ SITEURL }}/{{ page.url }}{%endblock%}
 
-{% block content %}        
-<section  >    
-    <h1 class="entry-title">{{ page.title }}</h1>
-    {% import 'translations.html' as translations with context %}
-    {{ translations.translations_for(page) }}
-    {% if PDF_PROCESSOR %}
-        <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">{{ GETPDF_TEXT|default('Get the pdf') }}</a>
-    {% endif %}
-    {{ page.content }}
-</section>
+{% block container %}
+<div class="single-main">
+    <div class="col-md-12">
+
+        {# <h2>{{ page.title }}</h2> #}
+        {% import 'translations.html' as translations with context %}
+        {{ translations.translations_for(page) }}
+        {% if PDF_PROCESSOR %}
+            <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">{{ GETPDF_TEXT|default('Get the pdf') }}</a>
+        {% endif %}
+
+        <article class="single-grid">
+            {{ page.content }}
+        </article>
+
+        <br />
+    </div>
+</div>
 {% endblock %}

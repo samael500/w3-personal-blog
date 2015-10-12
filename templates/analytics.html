@@ -12,6 +12,8 @@
 {% endif %}
 
 {% if YA_METRIKA %}
+{# get user ip #}
+<script type="text/javascript" src="https://www.l2.io/ip.js?var=userip"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
@@ -22,7 +24,8 @@
                     clickmap:true,
                     trackLinks:true,
                     accurateTrackBounce:true,
-                    webvisor:true
+                    webvisor:true,
+                    params:{'ip': userip}
                 });
             } catch(e) { }
         });

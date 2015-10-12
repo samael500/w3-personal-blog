@@ -29,23 +29,19 @@
 
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
 
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/paginator.css" />
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/pygment.css" />
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/emojify.min.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/pygment.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/paginator.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/social-likes_flat.css" />
 
-    <script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ SITEURL }}/theme/js/move-top.js"></script>
-    <script type="text/javascript" src="{{ SITEURL }}/theme/js/easing.js"></script>
-    <script type="text/javascript" src="{{ SITEURL }}/theme/js/emojify.min.js"></script>
-
-
-    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="/theme/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/theme/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/theme/js/social-likes.min.js"></script>
 
     {% if SHARETHIS_PUB_KEY %}
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript" src="//w.sharethis.com/button/buttons.js"></script>
     <script type="text/javascript">
         stLight.options({
             publisher: "{{ SHARETHIS_PUB_KEY }}",
@@ -56,18 +52,6 @@
     </script>
     {% endif %}
 
-    {# emojify #}
-    <script type="text/javascript">
-        emojify.setConfig({
-            img_dir : '/theme/images/emojify',
-            ignore_emoticons: true,
-        });
-        $(document).ready(function() {
-            emojify.run(document.getElementsByTagName('article')[0]);
-        });
-    </script>
-    {# /emojify #}
-
     {% block extra_head %}{% endblock %}
 </head>
 <body id="index">
@@ -76,20 +60,22 @@
 
     <div class="content">
         <div class="container">
-            <div class="content-grids">
-                {% block content_container %}
-                    <div class="col-md-8 content-main">
-                        {% block content %}{% endblock %}
-                    </div>
+            {% block container %}
+                <div class="content-grids">
+                    {% block content_container %}
+                        <div class="col-md-8 content-main">
+                            {% block content %}{% endblock %}
+                        </div>
 
-                    <div class="col-md-4 content-right">
-                        {% block sidebar %}{% endblock %}
+                        <div class="col-md-4 content-right">
+                            {% block sidebar %}{% endblock %}
+                            <div class="clearfix"></div>
+                        </div>
+
                         <div class="clearfix"></div>
-                    </div>
-
-                    <div class="clearfix"></div>
-                {% endblock %}
-            </div>
+                    {% endblock %}
+                </div>
+            {% endblock %}
         </div>
     </div>
 
@@ -104,6 +90,5 @@
 {% include 'analytics.html' %}
 {% include 'piwik.html' %}
 {% include 'disqus_script.html' %}
-    <script src="//netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>

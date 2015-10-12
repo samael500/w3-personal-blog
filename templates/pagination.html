@@ -3,16 +3,22 @@
 
     {% if articles_page.has_previous() %}
         <a href="{{ SITEURL }}/{{ articles_paginator.page(1).url}}" class="page gradient">{{ FIRST_TEXT|default('first') }}</a>
-        ...
-        <a href="{{ SITEURL }}/{{ articles_paginator.page(articles_page.number - 1).url}}" class="page gradient">{{ articles_page.number - 1 }}</a>
+    {% else %}
+        <span class="page active">{{ FIRST_TEXT|default('first') }}</span>
     {% endif %}
 
-    <span class="page active">{{ articles_page.number }}</span>
+    {% for i in range(1, articles_paginator.num_pages + 1) %}
+        {% if i == articles_page.number %}
+            <span class="page active">{{ i }}</span>
+        {% else %}
+            <a href="{{ SITEURL }}/{{ articles_paginator.page(i).url }}" class="page gradient">{{ i }}</a>
+        {% endif %}
+    {% endfor %}
 
     {% if articles_page.has_next() %}
-        <a href="{{ SITEURL }}/{{ articles_paginator.page(articles_page.number + 1).url}}" class="page gradient">{{ articles_page.number + 1 }}</a>
-        ...
         <a href="{{ SITEURL }}/{{ articles_paginator.page(articles_paginator.num_pages).url}}" class="page gradient">{{ LAST_TEXT|default('last') }}</a>
+    {% else %}
+        <span class="page active">{{ LAST_TEXT|default('last') }}</span>
     {% endif %}
 
 </div>
