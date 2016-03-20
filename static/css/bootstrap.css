@@ -2306,7 +2306,7 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #E74C3C;
+  color: #00aeff;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -4163,7 +4163,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: #E74C3C;
+  color: #00aeff;
   background-color: none;
   border-color: #ddd;
 }
@@ -4176,8 +4176,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   z-index: 2;
   color: #fff;
   cursor: default;
-  background-color: #1B242F;
-  border-color: #1B242F;
+  background-color: #989898;
+  border-color: #989898;
 }
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
@@ -5782,4 +5782,3 @@ button.close {
     display: none !important;
   }
 }
-/*# sourceMappingURL=bootstrap.css.map */

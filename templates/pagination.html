@@ -1,25 +1,26 @@
 {% if articles_page.has_previous() or articles_page.has_next() %}
-<div class="pagination">
+<div style="text-align: center;">
+<ul class="pagination">
 
     {% if articles_page.has_previous() %}
-        <a href="{{ SITEURL }}/{{ articles_paginator.page(1).url}}" class="page gradient">{{ FIRST_TEXT|default('first') }}</a>
+        <li><a href="{{ SITEURL }}/{{ articles_paginator.page(1).url}}">{{ FIRST_TEXT|default('first') }}</a></li>
     {% else %}
-        <span class="page active">{{ FIRST_TEXT|default('first') }}</span>
+        <li class="disabled"><span>{{ FIRST_TEXT|default('first') }}</span></li>
     {% endif %}
 
     {% for i in range(1, articles_paginator.num_pages + 1) %}
         {% if i == articles_page.number %}
-            <span class="page active">{{ i }}</span>
+            <li class="active"><span>{{ i }}</span></li>
         {% else %}
-            <a href="{{ SITEURL }}/{{ articles_paginator.page(i).url }}" class="page gradient">{{ i }}</a>
+            <li><a href="{{ SITEURL }}/{{ articles_paginator.page(i).url }}" class="page gradient">{{ i }}</a></li>
         {% endif %}
     {% endfor %}
 
     {% if articles_page.has_next() %}
-        <a href="{{ SITEURL }}/{{ articles_paginator.page(articles_paginator.num_pages).url}}" class="page gradient">{{ LAST_TEXT|default('last') }}</a>
+        <li><a href="{{ SITEURL }}/{{ articles_paginator.page(articles_paginator.num_pages).url}}">{{ LAST_TEXT|default('last') }}</a></li>
     {% else %}
-        <span class="page active">{{ LAST_TEXT|default('last') }}</span>
+        <li class="disabled"><span>{{ LAST_TEXT|default('last') }}</span></li>
     {% endif %}
-
+</ul>
 </div>
 {% endif %}
