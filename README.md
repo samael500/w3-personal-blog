@@ -91,6 +91,7 @@ It is my pelicanconf.py file:
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+import datetime
 
 AUTHOR = u'Maks'
 SITENAME = u'Maks blog'
@@ -169,4 +170,5 @@ CATEGORY_SAVE_AS = u'category/{slug}.html'
 TAG_URL = u'tag/{slug}/'
 TAG_SAVE_AS = u'tag/{slug}/index.html'
 
+CURRENT_YEAR = datetime.date.today().year
 ```
