@@ -15,7 +15,10 @@
 
                     <div class="content-grid-info">
                         {% if article.image %}
-                            <img src="{{ article.image }}" alt="{{ article.title|striptags }}"/>
+                            {% if 'advthumbnailer' in PLUGINS %}
+                                {% set thumb_img_url = article.image | thumbnail('669x_') %}
+                            {% endif %}
+                            <img src="{{ thumb_img_url|default(article.image) }}" alt="{{ article.title|striptags }}"/>
                         {% endif %}
                         <div class="post-info">
                             {% include 'article_infos.html' %}
