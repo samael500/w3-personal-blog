@@ -3,11 +3,11 @@ Personal Blog a Blogging Category Flat Bootstrap Responsive Web Template
 
 Pelican adaptation of W3 Personal Blog template. [Live demo](http://samael500.github.io/).
 
-![index](readme_img/index.png)
-<hr />
-![article](readme_img/article.png)
-<hr />
-![archive](readme_img/archive.png)
+![index](./readme_img/index.png) <hr />
+
+![article](./readme_img/article.png) <hr />
+
+![archive](./readme_img/archive.png)
 
 
 [Personal Blog](https://w3layouts.com/personal-blog-a-blogging-category-flat-bootstrap-responsive-web-template/)
@@ -42,7 +42,7 @@ This entry was posted in [Blogging Template](https://w3layouts.com/blogging-temp
 ###Article image
 On the main page of the article is displayed with a preview image. To specify the image to add to the meta tag information `Image`.
 
-![article_info](readme_img/article_info.png)
+![article_info](./readme_img/article_info.png)
 
 For example:
 ```Markdown
