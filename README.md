@@ -21,7 +21,7 @@ as per the user requirements. Personal Blog designed with a clean flat grid
 system. It is compatible in all web browsers,Smartphones and Tablets.It is
 designed using HTML5 and CSS3.
 
-###Template Information
+### Template Information
 - **Template Name:** Personal Blog a Blogging Category Flat Bootstrap Responsive Web Template
 - **Licence:** Life Time Free Licence under Creative Commons Attribution 3.0
 - Unported. Unlimited Use, Source files & PSD included, you can help & support us
@@ -39,7 +39,7 @@ template, best responsive template.
 
 This entry was posted in [Blogging Template](https://w3layouts.com/blogging-template/).
 
-###Article image
+### Article image
 On the main page of the article is displayed with a preview image. To specify the image to add to the meta tag information `Image`.
 
 ![article_info](./readme_img/article_info.png)
@@ -64,7 +64,7 @@ Summary:
 #
 
 ```
-###Simple translation
+### Simple translation
 To change the short text in the design theme, you should define constants and names.
 
 | const name | default value |
@@ -85,7 +85,7 @@ To change the short text in the design theme, you should define constants and na
 | FEED_TEXT | Feed |
 | GETPDF_TEXT | Get the pdf |
 
-###Pelican conf
+### Pelican conf
 It is my pelicanconf.py file:
 ```python
 #!/usr/bin/env python
