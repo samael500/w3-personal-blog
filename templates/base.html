@@ -10,6 +10,7 @@
     </script>
     {% endif %}
     {# /https redirect #}
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,18 +21,17 @@
     <meta name="author" content="{{ AUTHOR }}" />
     <meta name="robots" content="index, follow"/>
     <meta name="keywords" content="{% block keywords %}{{ KEYWORDS }}{%endblock%}" />
+    <meta name="description" content="{% block description %}{{ DESCRIPTION }}{%endblock%}" />
 
-    <meta property="og:title" content="{% block ogtitle %}{{ SITENAME }}{%endblock%}"/>
+    <meta property="og:title" content="{% block ogtitle %}{{ self.title() }}{%endblock%}"/>
     <meta property="og:url" content="{% block ogurl %}{{ SITEURL }}{%endblock%}"/>
     <meta property="og:site_name" content="{{ SITENAME }}"/>
     <meta property="og:type" content="{% block ogtype %}website{%endblock%}"/>
     <meta property="og:image" content="{% block ogimage %}{% endblock %}" />
-    <meta property="og:description" content="{% block ogdescription %}{% endblock %}" />
+    <meta property="og:description" content="{{ self.description() }}" />
     {% block extra_og %}{% endblock %}
 
     <link rel="canonical" href="{% block canonicalurl %}{{ SITEURL }}{%endblock%}" />
-
-    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
 
     <link rel="stylesheet" type="text/css" href="/theme/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/theme/css/font-awesome.css" />
