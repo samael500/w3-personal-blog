@@ -170,6 +170,11 @@ CATEGORY_SAVE_AS = u'category/{slug}.html'
 TAG_URL = u'tag/{slug}/'
 TAG_SAVE_AS = u'tag/{slug}/index.html'
 
+# plugins and extensions
+PLUGINS = [
+    # list of plugins
+    'advthumbnailer',
+]
 CURRENT_YEAR = datetime.date.today().year
 LICENSE_ROW = '''
 <p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
