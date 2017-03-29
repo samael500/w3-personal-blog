@@ -14,8 +14,8 @@
                 {% endif %}
 
                     <div class="content-grid-info">
-                        {% if article.image %}
-                            <img src="{{ article.image | thumbnail('669x_') }}" alt="{{ article.title|striptags }}"/>
+                        {% if article.image or article.thumb %}
+                            <img src="{{ article.thumb|default(article.image) }}" alt="{{ article.title|striptags }}"/>
                         {% endif %}
                         <div class="post-info">
                             {% include 'article_infos.html' %}
