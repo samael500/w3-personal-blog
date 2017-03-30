@@ -19,7 +19,7 @@
                         {% endif %}
                         <div class="post-info">
                             {% include 'article_infos.html' %}
-                            <p>{{ article.summary }}</p>
+                            <div>{{ article.summary }}</div>
                             <a href="{{ SITEURL }}/{{ article.url }}"><span></span>{{ READMORE_TEXT|default('read more...') }}</a>
                         </div>
                     </div>

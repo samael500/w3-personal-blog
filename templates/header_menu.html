@@ -19,7 +19,7 @@
                             <a href="{{ link }}">{{ title|upper }}</a></li>
                     {% endfor %}
                     {% if DISPLAY_PAGES_ON_MENU %}
-                        {% for pa in PAGES %}
+                        {% for pa in pages %}
                             <li {% if pa == page %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ pa.url }}">{{ pa.title|upper }}</a></li>
                         {% endfor %}
                     {% endif %}
@@ -31,7 +31,6 @@
 
                     <div class="clearfix"></div>
                 </ul>
-            </div>
 
             <div class="clearfix"></div>
 
