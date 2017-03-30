@@ -82,7 +82,8 @@ To change the short text in the design theme, you should define constants and na
 | FIRST_TEXT | first |
 | LAST_TEXT | last |
 | READMORE_TEXT | read more... |
-| FEED_TEXT | Feed |
+| ATOM_FEED_TEXT | Feed Atom |
+| RSS_FEED_TEXT | Feed RSS |
 | GETPDF_TEXT | Get the pdf |
 
 ### Pelican conf
