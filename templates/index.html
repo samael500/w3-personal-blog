@@ -51,17 +51,19 @@
             <li><a href="{{ SITEURL }}/{{ TAGS_SAVE_AS|default('tags.html') }}"><i class="fa-li fa fa-tag"></i> {{ TAGS_TEXT|default('Tags') }}</a></li>
 
             {% if TAG_FEED_ATOM and tag is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
-            {% elif TAG_FEED_RSS and tag is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}"><i class="fa-li fa fa-rss"></i> {{ ATOM_FEED_TEXT|default('Feed Atom') }}</a></li>
             {% elif CATEGORY_FEED_ATOM and category is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
-            {% elif CATEGORY_FEED_RSS and category is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}"><i class="fa-li fa fa-rss"></i> {{ ATOM_FEED_TEXT|default('Feed Atom') }}</a></li>
             {% elif FEED_ALL_ATOM %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"><i class="fa-li fa fa-rss"></i> {{ ATOM_FEED_TEXT|default('Feed Atom') }}</a></li>
+            {% endif %}
+
+            {% if TAG_FEED_RSS and tag is defined %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}"><i class="fa-li fa fa-rss"></i> {{ RSS_FEED_TEXT|default('Feed RSS') }}</a></li>
+            {% elif CATEGORY_FEED_RSS and category is defined %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}"><i class="fa-li fa fa-rss"></i> {{ RSS_FEED_TEXT|default('Feed RSS') }}</a></li>
             {% elif FEED_ALL_RSS %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"><i class="fa-li fa fa-rss"></i> {{ FEED_TEXT|default('Feed') }}</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"><i class="fa-li fa fa-rss"></i> {{ RSS_FEED_TEXT|default('Feed RSS') }}</a></li>
             {% endif %}
         </ul>
     </div>
